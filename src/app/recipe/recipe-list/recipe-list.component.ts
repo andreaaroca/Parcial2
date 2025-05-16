@@ -29,4 +29,8 @@ export class RecipeListComponent implements OnInit {
   onSelect(recipe: Recipe) {
     this.route.navigate(['/recipes', recipe.id]);
   }
+
+  getIngredientsCount(recipe: Recipe): number {
+    return recipe.ingredientes.length;
+  }
 }
