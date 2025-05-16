@@ -1,31 +1,22 @@
-<div>
-  <div>
-    <div *ngIf="selected">
-      <app-recipe-detail [recipe]="selectedRecipe"></app-recipe-detail>
+<div class="container mt-4">
+  <div class="row">
+    <div 
+      class="col-md-4 mb-3" 
+      *ngFor="let r of recipes"
+    >
+      <div class="card h-100 shadow-sm">
+        <img
+          [src]="r.imagen"
+          class="card-img-top"
+          [alt]="r.nombre"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ r.nombre }}</h5>
+          <p class="card-text">{{ r.etiquetas}}</p>
+          <p><strong>Ingredientes:</strong> {{ r.ingredientes.length }}</p> 
+          <a [routerLink]="['/recipes', r.id]" class="btn btn-primary mt-2">Ver receta</a>
+        </div>
+      </div>
     </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Receta</th>
-          <th>Imagen</th>
-          <th>Porciones</th>
-          <th>Tiempo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let recipe of recipes" (click)="onSelect(recipe)">
-          <td>{{ recipe.nombre }}</td>
-          <td>
-            <img
-              class="recipe-img"
-              [src]="recipe.imagen"
-              alt="{{ recipe.imagen }}"
-            />
-          </td>
-          <td>{{ recipe.porciones }}</td>
-          <td>{{ recipe.tiempo_minutos }} min</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </div>
