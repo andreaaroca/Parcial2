@@ -27,7 +27,6 @@ export class RecipeListComponent implements OnInit {
   }
 
   onSelect(recipe: Recipe) {
-    this.selectedRecipe = recipe;
-    this.selected = true;
+    this.route.navigate(['/recipes', recipe.id]);
   }
 }

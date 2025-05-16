@@ -10,7 +10,7 @@ import { Recipe } from '../Recipe';
   styleUrl: './recipe-detail.component.css',
 })
 export class RecipeDetailComponent implements OnInit {
-  @Input() recipeDetail: any;
+  @Input() recipe: any;
 
   constructor(private route: ActivatedRoute,
     private recipeService: RecipeService,
@@ -20,7 +20,7 @@ export class RecipeDetailComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.recipeService.getRecipeDetail(id)
     .subscribe(trainer => {
-      this.recipeDetail = Recipe; 
+      this.recipe = Recipe; 
       console.log('Detalle del trainer:', trainer);
     });
 }}
